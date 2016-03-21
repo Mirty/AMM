@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<!--
+	Create un form per l’inserimento di un nuovo oggetto all’interno della pagina venditore.html. Il form deve richiedere all’utente le seguenti informazioni, utilizzando le tipologie di input corrette:
+	Nome dell’oggetto
+	URL di una immagine descrittiva dell’oggetto
+	Descrizione dell’oggetto
+	Prezzo
+	Quantità di oggetti disponibili
+
+	Create una sezione di navigazione che permetta di raggiungere la pagina descrizione.html e login.html.
+
+	Inserite le metainformazioni sulla pagina e validatela. 
+-->
+<html>
+	<head>
+		<title>Venditore</title>
+ 		<meta charset="utf-8"/>
+ 		<meta name="author" content="Marta Murtas">
+ 		<meta name="description" content="Milestone 1 per il corso di AMM">
+ 		<meta name="keywords" content="ecommerce, AMM">
+	</head>
+
+	<body>
+		<!-- 
+			Userò i div, nonostante senza i css siano inutili,
+			per rendere più 'corretto' 
+			e più semplice da modificare in futuro il codice
+		-->
+		<!-- Inizio header -->
+		<div>
+			<p><a href="descrizione.html"> Descrizione </a></p>
+			<p><a href="login.html"> Accedi </a></p>
+		</div>
+		<!-- Fine header -->
+
+
+		<!-- Inizio form -->
+			<form action="venditore.html" method="post">
+				<label for="nome">Nome dell'oggetto</label>
+				<input type="text" name="nome" id="nome"/> 
+				<label for="url">URL immagine dell'oggetto</label>
+				<input type="url" name="url" id="url"/> 
+				<label for="descrizione">Descrizione dell'oggetto</label>
+				<textarea rows="5" cols="20" name="descrizione" id="descrizione"></textarea>
+				<label for="prezzo">Prezzo dell'oggetto</label>
+				<input type= "number" name="prezzo" id="prezzo"/>
+				<label for="quantità">Quantità</label>
+				<input type= "number" name="quantità" id="quantità"/>
+				<input type="submit" value="Inserisci"/>
+			</form>
+		<!-- Fine form -->
+	</body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<!--
+	Inserite una tabella nella pagina cliente.html che contenga la descrizione di almeno 5 oggetti, che includa: nome dell’oggetto, foto descrittiva (piccola), quantità di pezzi disponibili, prezzo e link per aggiungere l’oggetto al carrello. Il link deve rimandare alla pagina cliente.html per il momento. 
+
+	Create una sezione di navigazione che permetta di raggiungere la pagina descrizione.html e login.html.
+
+	Inserite le metainformazioni sulla pagina e validatela. 
+-->
+<html>
+	<head>
+		<title>Cliente</title>
+ 		<meta charset="utf-8"/>
+ 		<meta name="author" content="Marta Murtas">
+ 		<meta name="description" content="Milestone 1 per il corso di AMM">
+ 		<meta name="keywords" content="ecommerce, AMM">
+	</head>
+
+	<body>
+		<!-- 
+			Userò i div, nonostante senza i css siano inutili,
+			per rendere più 'corretto' 
+			e più semplice da modificare in futuro il codice
+		-->
+		<!-- Inizio header -->
+		<div>
+			<p><a href="descrizione.html"> Descrizione </a></p>
+			<p><a href="login.html"> Accedi </a></p>
+		</div>
+		<!-- Fine header -->
+
+
+		<!-- Inizio tabella -->
+		<!-- 
+			Prezzi e quantità sono totalmente casuali;
+			Ho scelto di assegnare solo il valore height alle immagini in modo da renderle più o meno 
+			simili come dimensione e non rendere la tabella confusionaria;
+		-->
+			<table>
+				<tr>
+					<th>Nome</th>
+					<th>Immagine</th>
+					<th>In stock</th>
+					<th>Prezzo</th>
+					<th>Aggiungi al carrello</th>
+				</tr>
+
+				<tr>
+					<td>Pasta Barilla</td>
+					<td>
+						<img src="imgs/barilla.jpg" alt="Foto pasta Barilla" title="Pasta Barilla" height="90">
+					</td>
+					<td>135</td>
+					<td>1,50 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Pasta De Cecco</td>
+					<td>
+						<img src="imgs/dececco.jpg" alt="Foto pasta De Cecco" title="Pasta De Cecco" height="90">
+					</td>
+					<td>115</td>
+					<td>1,50 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Parmigiano Reggiano</td>
+					<td>
+						<img src="imgs/parmigiano.jpg" alt="Foto formaggio Parmigiano Reggiano" title="Parmigiano Reggiano" height="90">
+					</td>
+					<td>58</td>
+					<td>11,50 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Pecorino Sardo</td>
+					<td>
+						<img src="imgs/pecorinosardo.jpg" alt="Foto formaggio Pecorino Sardo" title="Pecorino Sardo" height="90">
+					</td>
+					<td>112</td>
+					<td>13,50 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Pecorino Siciliano</td>
+					<td>
+						<img src="imgs/pecorinosiciliano.jpg" alt="Foto formaggio Pecorino Siciliano" title="Pecorino Siciliano" height="90">
+					</td>
+					<td>107</td>
+					<td>12,50 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>DolceSardo</td>
+					<td>
+						<img src="imgs/dolcesardo.jpg" alt="Foto formaggio DolceSardo" title="DolceSardo" height="90">
+					</td>
+					<td>107</td>
+					<td>12,50 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Salame Galbanetto</td>
+					<td>
+						<img src="imgs/galbanetto.jpg" alt="Foto salame Galbanetto" title="Salame Galbanetto" height="90">
+					</td>
+					<td>113</td>
+					<td>11,00 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Prosciutto crudo di Parma</td>
+					<td>
+						<img src="imgs/crudodiparma.jpg" alt="Foto prosciutto crudo di Parma" title="Prosciutto crudo di Parma" height="90">
+					</td>
+					<td>113</td>
+					<td>11,00 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+
+				<tr>
+					<td>Prosciutto crudo San Daniele</td>
+					<td>
+						<img src="imgs/crudosandaniele.jpg" alt="Foto prosciutto crudo San Daniele" title="Prosciutto crudo San Daniele" height="90">
+					</td>
+					<td>113</td>
+					<td>11,00 €</td>
+					<td>
+						<a href="cliente.html"><img src="imgs/carrello.png" alt="Aggiungi al carrello" height="50"></a>
+					</td>
+				</tr>
+			</table>
+		<!-- Fine tabella -->
+	</body>
+</html>

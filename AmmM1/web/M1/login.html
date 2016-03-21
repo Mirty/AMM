@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<!--
+	Inserire all’interno della pagina di login.html un form per richiedere username e password all’utente, utilizzando i campi di input corretti. 
+
+	Create una sezione di navigazione che permetta di raggiungere la pagina descrizione.html, cliente.html e venditore.html.
+
+	Inserite le metainformazioni sulla pagina e validatela. 
+-->
+<html>
+	<head>
+		<title>Login</title>
+ 		<meta charset="utf-8"/>
+ 		<meta name="author" content="Marta Murtas">
+ 		<meta name="description" content="Milestone 1 per il corso di AMM">
+ 		<meta name="keywords" content="ecommerce, AMM">
+	</head>
+
+	<body>
+		<!-- 
+			Userò i div, nonostante senza i css siano inutili,
+			per rendere più 'corretto' 
+			e più semplice da modificare in futuro il codice
+		-->
+		<!-- Inizio header -->
+		<div>
+			<p><a href="descrizione.html"> Descrizione </a></p>
+			<p><a href="cliente.html"> Cliente </a></p>
+			<p><a href="venditore.html"> Venditore </a></p>
+		</div>
+		<!-- Fine header -->
+
+
+		<!-- Inizio form -->
+			<form action="login.html" method="post">
+				<label for="email">Email</label>
+				<input type="email" name="email" value="tua email" id="email"/>
+				<label for="password">Password</label>
+				<input type="password" name="password" value="tua password" id="password" />
+				<input type="submit" value="Accedi" />
+			</form>
+		<!-- Fine form -->
+	</body>
+</html>
