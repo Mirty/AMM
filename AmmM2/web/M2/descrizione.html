@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Eataly - Descrizione</title>
+ 		<meta charset="utf-8"/>
+ 		<meta name="author" content="Marta Murtas">
+ 		<meta name="description" content="Milestone 2 per il corso di AMM">
+ 		<meta name="keywords" content="ecommerce, AMM">
+                <link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+
+	<body>
+            <!-- 
+                Struttura delle pagine:
+                    1) header
+                    2) wrapper contenente sezione centrale, sidebar e footer
+                    
+                    Per header, sez centrale e footer (per ciascuno di loro) 
+                    ho creato un div che prende tutta la larghezza della pagina (width:100%)
+                    ed al suo interno un div che prende al massimo 1200px e che risulta sempre centrale.
+            
+                Collegamenti alle altre pagine richiesti nella M1:
+                    Anziché inserire i collegamenti tutti raggruppati (come richiesto nella M1)
+                    la M2 è organizzata come un sito reale, ovvero è possibile accedere alla pagina:
+                        descrizione.html) cliccando sul logo nell'header
+                        cliente.html) cliccando sul carrello nell'header,
+                                      e sia da descrizione.html che da login.html
+                                      cliccando su "Cliente"
+                        login.html) cliccando sul pulsante "Accedi" nell'header
+                        venditore.html) sia da descrizione.html che da login.html
+                                        cliccando su "Venditore"
+            -->
+            
+            
+            <!-- Inizio header -->
+            <div id="header">
+                <div id="header_c">
+                    <div id="header_c_sezione_superiore">
+                        <div id="header_c_sezione_superiore_logo">
+                            <a href="descrizione.html" title="Vai alla Home"><div id="header_c_sezione_superiore_logo_eataly"></div></a>
+                            <div id="header_c_sezione_superiore_logo_bandiera">
+                                <div id="header_c_sezione_superiore_logo_bandiera_verde"></div>
+                                <div id="header_c_sezione_superiore_logo_bandiera_bianco"></div>
+                                <div id="header_c_sezione_superiore_logo_bandiera_rosso"></div>
+                            </div>
+                        </div>
+                        <div id="header_c_sezione_superiore_utente">
+                            <a href="login.html"><div id="header_c_sezione_superiore_utente_accesso" title="Accedi">ACCEDI</div></a>
+                            <a href="cliente.html"><div id="header_c_sezione_superiore_utente_carrello" title="Vai al carrello"></div></a>
+                        </div>
+                        <div id="header_c_sezione_superiore_ricerca">
+                            <form action="descrizione.html" method="post">
+                                <div id="header_c_sezione_superiore_barra_di_ricerca">
+                                        <input type="search" placeholder="nome prodotto, marca, ..." name="ricerca">
+                                </div>
+                               <button type="submit">CERCA</button>
+                            </form>
+                        </div>
+
+
+                    </div>
+                    <div id="header_c_sezione_inferiore">
+                        <div class="cat">PASTA</div>
+                        <div class="cat">FORMAGGI</div>
+                        <div class="cat">SALUMI</div>
+                        <div class="cat">VINI</div>
+                        <div class="cat">LIQUORI</div>
+                        <div class="cat">ALTRO</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Fine header -->
+                
+                
+                <div id="header_sub"></div>
+
+                <div id="wrapper">
+                <!-- Inizio colonna laterale -->
+                <div id="colonna_laterale">
+                    <div id="colonna_laterale_superiore" title="Hai bisogno di aiuto? Leggi le FAQ."></div>
+                    <div id="colonna_laterale_barra"></div>
+                    <div id="colonna_laterale_inferiore" title="Hai bisogno di contattarci? Il nostro servizio clienti ti garantirà una risposta entro le prossime 24 ore."></div>
+                </div>
+                <!-- Fine colonna laterale -->
+
+                <!-- Inizio corpo -->
+                <div id="corpo">
+                    <div id="corpo_c">
+                        <div class="corpo_c_riga">
+                            <!-- Sommario iniziale -->
+                            <div class="corpo_c_contenitore" id="sommario">
+                                <div class="corpo_c_titolo"><h1>Sommario</h1></div>
+                                <div class="corpo_c_form">
+                                    <a href="#prodotti_venduti"><h3>Prodotti venduti</h3></a>
+                                    <a href="#servizi_offerti"><h3>Servizi offerti</h3></a>
+                                </div>
+                            </div>
+                            <!-- Fine sommario -->	
+                            
+                            <!-- Inizio parte prodotti venduti -->
+                            <div class="corpo_c_vantaggi"><a id="prodotti_venduti"></a>
+                                <h2>Prodotti venduti</h2>
+                                <h3><a href="descrizione.html">Eataly.com</a> ti offre diversi vantaggi!<br>Ti diamo la possibilità di acquistare</h3>
+                                <ul>
+                                    <li> 
+                                        <h4>PASTA</h4>
+                                        Rivendiamo le migliori marche di pasta: Barilla, De Cecco, Voiello, Del Verde, ...
+                                    </li>
+                                    <li> 
+                                        <h4>FORMAGGI</h4>
+                                        Potrai trovare Grana Padano, Asiago, Fontina, Robiola Osella, ...
+                                    </li>
+                                    <li> 
+                                        <h4>SALUMI</h4>
+                                        Dal prosciutto crudo San Daniele, di Parma, ... al prosciutto cotto ... 
+                                    </li>
+                                    <li> 
+                                        <h4>VINI</h4>
+                                        
+                                    </li>
+                                    <li> 
+                                        <h4>LIQUORI</h4>
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Fine parte prodotti venduti -->
+                            
+                            <!-- Inizio parte servizi offerti -->
+                            <div class="corpo_c_vantaggi"><a id="servizi_offerti"></a>
+                                <h2>Servizi offerti</h2>
+                                <h3><a href="descrizione.html">Eataly.com</a> ti offre diversi vantaggi!<br>Ti diamo la possibilità di diventare:</h3>
+                                <ul>
+                                    <li> 
+                                        <h4>Un <a href="venditore.html">VENDITORE</a></h4>
+                                        Sei un rivenditore di prodotti tipici usati dalle famiglie e dalle gastronomie italiane? Affrettati ad iscriverti su 
+                                        <a href="descrizione.html">Eataly.com</a> per mettere il tuo prodotto subito in commercio rendendolo alla portata 
+                                        degli acquirenti di tutto il mondo, aumentando a dismisura gli introiti della tua azienda! 
+                                        Registrarsi è completamente gratuito e lo stesso vale per la messa in vendita dei tuoi beni!
+                                        Per l'inserimento dei tuoi prodotti non avrai bisogno di un tecnico! La nostra interfaccia user-friendly renderà il procedimento
+                                        gradevole e molto veloce. Dopo aver effettuato la registrazione potrai mettere in commercio i tuoi prodotti da 
+                                        <a href="venditore.html" target="blank">questa</a> pagina. Che aspetti? Iscriviti subito su <a href="descrizione.html">Eataly.com</a> 
+                                    </li>
+                                    <li> 
+                                        <h4>Un <a href="cliente.html">CLIENTE</a></h4>
+                                        Sei stato in vacanza in Italia e hai fatto esperienza della nostra arte culinaria? Sei rimasto coinvolto emotivamente 
+                                        nell'assaggio delle nostre prelibatezze? Le tue papille gustative ti hanno spedito dritto al paradiso provocandoti 
+                                        un'apoteosi del gusto? O sei semplicemente un italiano all'estero che non riesce a fare a meno del cibo della sua 
+                                        madrepatria? (disclaimer: non illuderti, la cucina della nonna sarà sempre e comunque irraggiungibile).
+                                        <a href="descrizione.html">Eataly.com</a> ti permette di acquistare a prezzi super convenienti i prodotti
+                                        che potresti trovare entrando in ogni bottega italiana, portando i tuoi prodotti preferiti a casa tua in pochissimi
+                                        giorni lavorativi! Rivendiamo le marche di nicchia come quelle più conosciute ed usate nella cucina di un tipico
+                                        italiano. Grazie a <a href="descrizione.html">Eataly.com</a> potrai finalmente sentirti come Marcel Proust con la sua madeleine
+                                        e tornerai indietro nel tempo nei tuoi ricordi italiani più felici, semplicemente mangiando i tuoi cibi preferiti comodamente da casa tua!
+                                    </li>
+                                </ul>
+                            </div>
+                            <!-- Fine parte servizi offerti -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Fine corpo -->
+                
+                <footer>
+                    Creato da Marta Murtas - Progetto AMM 2016
+                    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+                        <img class="validazione" src="http://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Valido!" />
+                    </a>
+                    <div id="footer_informativo">
+                        <div id="footer_informativo_c">
+                            <div class="footer_informativo_sezione">
+                                <div class="footer_informativo_sezione_titolo">Metodi di pagamento</div>
+                                <div class="footer_informativo_sezione_sottostante">
+                                    <div id="footer_informativo_sezione_sottostante_pagamento"></div>
+                                </div>
+                            </div>
+                            <div class="footer_informativo_barra"></div>
+                            
+                            <div class="footer_informativo_sezione">
+                                <div class="footer_informativo_sezione_titolo">Seguici sui social</div>
+                                <div class="footer_informativo_sezione_sottostante">
+                                    <div id="footer_informativo_sezione_sottostante_followus">
+                                        <div class="footer_informativo_sezione_sottostante_social">
+                                            <img src="imgs/footer/facebook.png" alt="facebook.com" title="Seguici sulla nostra pagina Facebook">
+                                        </div>
+                                        <div class="footer_informativo_sezione_sottostante_social">
+                                            <img src="imgs/footer/instagram.png" alt="instagram.com" title="Seguici sul nostro profilo Instagram">
+                                        </div>
+                                        <div class="footer_informativo_sezione_sottostante_social">
+                                            <img src="imgs/footer/twitter.png" alt="twitter.com" title="Segui il nostro account Twitter">
+                                        </div>
+                                        <div class="footer_informativo_sezione_sottostante_social">
+                                            <img src="imgs/footer/gplus.png" alt="google plus" title="Seguici sulla nostra pagina di Google Plus">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="footer_informativo_barra"></div>
+                            
+                            <div class="footer_informativo_sezione">
+                                <div class="footer_informativo_sezione_titolo">Iscriviti alla newsletter</div>
+                                <div class="footer_informativo_sezione_sottostante">
+                                    <form action="login.html" method="post">
+                                        <input type="email" name="newsletter" placeholder="tua email">
+                                        <button type="submit" name="iscr_newsletter">Iscriviti</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+                
+            </div>
+	</body>
+</html>
