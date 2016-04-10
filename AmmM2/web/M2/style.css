@@ -266,7 +266,7 @@ button:hover {
     float:left;
 }
 
-/*Non funziona*/
+
 #corpo_c {
     max-width:1200px; /*Se la larghezza della pagina diminuisce, diminuisce anche lui*/
     height:100%;
