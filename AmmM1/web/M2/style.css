@@ -8,6 +8,7 @@ and open the template in the editor.
     Author     : mirty
 */
 
+
 /* Importo il font per il footer*/
 @import url(https://fonts.googleapis.com/css?family=Handlee);
 
@@ -663,6 +664,7 @@ footer {
     cursor: pointer;
 }
 
+/*Definisco la grafica degli input  per la newsletter */
 input[name="newsletter"] {
     width:250px;
     margin-left:45px;
