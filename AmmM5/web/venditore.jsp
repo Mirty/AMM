@@ -70,8 +70,13 @@
                                     </div>    
                                     <div class="corpo_c_form_colonna">
                                         <select name="categoria">
-                                            <c:forEach var="categoria" items="${categorie}">
-                                                <option value="${categoria.key}">${categoria.value}</option>
+                                            <c:forEach var="cat" items="${categorie}">
+                                                <c:if test="${cat.key==categoria}">
+                                                    <option value="${cat.key}" selected>${cat.value}</option>
+                                                </c:if>
+                                                <c:if test="${cat.key!=oggetto.getCategoria()}">
+                                                    <option value="${cat.key}">${cat.value}</option>
+                                                </c:if>
                                             </c:forEach>
                                         </select>
                                     </div>
@@ -103,7 +108,7 @@
                                         <label for="aggiungi_prezzo">Prezzo dell'oggetto</label>
                                     </div>   
                                     <div class="corpo_c_form_colonna">
-                                        <input type= "number" name="prezzo" id="aggiungi_prezzo"  value="${prezzo}" min="0"/>
+                                        <input type= "number" name="prezzo" id="aggiungi_prezzo"  value="${prezzo}" min="0" step="0.01"/>
                                     </div>    
                                 </div>
                             </li> 
@@ -113,7 +118,7 @@
                                         <label for="aggiungi_peso">Peso dell'oggetto</label>
                                     </div>   
                                     <div class="corpo_c_form_colonna">
-                                        <input type= "number" name="peso" id="aggiungi_peso"  value="${peso}" min="0"/>
+                                        <input type= "number" name="peso" id="aggiungi_peso"  value="${peso}" min="0" step="0.01"/>
                                     </div>    
                                 </div>
                             </li> 

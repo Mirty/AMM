@@ -1,5 +1,6 @@
 package amm.milestone3;
 
+import amm.milestone3.Classi.AcquirenteFactory;
 import amm.milestone3.Classi.Oggetto;
 import amm.milestone3.Classi.OggettoFactory;
 import amm.milestone3.Classi.Utente;
@@ -56,6 +57,7 @@ public class Acquirente extends HttpServlet {
             // verifico l'esistenza di un oggetto con id idPar.. se non esiste lancia un'eccezione (nessuna)
             try {
                 Oggetto temp = OggettoFactory.getInstance().getOggettoById(idPar);
+                ArrayList <Oggetto> oggettiSimili = new ArrayList <>();
                 if (temp != null) {
                     // creo l'oggetto selezionato in base all'id
                     // prendo dalla pagina precedente l'oggetto selezionato (dall'immagine del carrello) passato nella url
@@ -72,6 +74,11 @@ public class Acquirente extends HttpServlet {
 "                                            <img src=\"imgs/header/carrello.png\" alt=\"Aggiungi al carrello\" height=\"40\" title=\"Acquista "+temp.getNome()+" " +temp.getMarca()+" \">\n" +
 "                                        </a>\n" +
 "                                    </div>");
+                    
+                    oggettiSimili = OggettoFactory.getInstance().getOggettiTopByCategoria(temp.getCategoria());
+                    request.removeAttribute("simili");
+                    request.setAttribute("simili", oggettiSimili);
+                    
                     request.getRequestDispatcher("visualizza_oggetto.jsp").forward(request, response);
                 }
             } catch (Exception e) {
@@ -108,17 +115,29 @@ public class Acquirente extends HttpServlet {
             // aggiorno l'oggetto della sessione, oggetti
             session.removeAttribute("oggetti");
             session.setAttribute("oggetti", OggettoFactory.getInstance().getListaOggetti());
-            System.out.println("**Ci sono "+OggettoFactory.getInstance().getListaOggetti().size()+" oggetti in lista.");
+            // carico il saldo del cliente nel primo accesso e quando un'acquisto va a buon fine
+            session.removeAttribute("conto");
+            session.setAttribute("conto", ((Utente)AcquirenteFactory.getInstance().getAcquirenteByEmail((String)session.getAttribute("email"))).getConto());
             request.getRequestDispatcher("acquisto.jsp").forward(request, response);
         } 
+        // RICARICA
+        else if (session.getAttribute("acquirenteLoggedIn")!=null && request.getParameter("ricarica_button")!=null) {
+            String email = (String)session.getAttribute("email");
+            float ricarica = Float.parseFloat(request.getParameter("ricarica_saldo"));
+            AcquirenteFactory.getInstance().ricarica(email,ricarica);
+            // aggiorno il saldo del cliente
+            session.removeAttribute("conto");
+            session.setAttribute("conto", ((Utente)AcquirenteFactory.getInstance().getAcquirenteByEmail(email)).getConto());
+            request.getRequestDispatcher("cliente.jsp").forward(request, response);
+        }
         else if (session.getAttribute("acquirenteLoggedIn")!=null) {
             request.getRequestDispatcher("cliente.jsp").forward(request, response);
         }
-
-        // se l'acquirente è correttamente loggato E se i parametri sono passati correttamente,
-        // a questo punto del codice neanche ci sia arriva... se siamo quì significa che c'è 
-        // un'anomalia.. quindi lo reindirizzo alla pagina di accesso_negato.jsp per la segnalazione dell'errore
-        request.getRequestDispatcher("accesso_negato.jsp").forward(request, response);
+        if(!response.isCommitted())
+            // se l'acquirente è correttamente loggato E se i parametri sono passati correttamente,
+            // a questo punto del codice neanche ci sia arriva... se siamo quì significa che c'è 
+            // un'anomalia.. quindi lo reindirizzo alla pagina di accesso_negato.jsp per la segnalazione dell'errore
+            request.getRequestDispatcher("accesso_negato.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

@@ -112,23 +112,32 @@ public class Venditore extends HttpServlet {
                 goBackVenditore++;
             }
             
+            // quantita oggetto
+            if (!request.getParameter("quantita").equals("")) {
+                temp.setInStock(Integer.parseInt(request.getParameter("quantita")));
+                request.setAttribute("quantita", temp.getInStock());
+            } else {
+                goBackVenditore++;
+            }
+            
             // se n>=1 campi sono vuoti, torna a venditore.jsp per l'inserimento corretto
             if (goBackVenditore > 0) {
                 request.getRequestDispatcher("venditore.jsp").forward(request, response);
             }
-            
-            // setto l'attributo oggetto passandogli come valore l'oggetto Oggetto temp
-            // mi serve per la pagina di riepilogo (visualizza_oggetto.jsp)
-            
-            temp.setInStock(Integer.parseInt((String)request.getParameter("quantita")));
-            temp.setMarca((String)session.getAttribute("email"));
-            request.setAttribute("oggetto", temp);
-            
-            // Inserisco l'oggetto nel db
-            OggettoFactory.getInstance().creaOggetto(temp);
-            session.removeAttribute("oggetti");
-            session.setAttribute("oggetti", OggettoFactory.getInstance().getOggettiByVenditore((String)session.getAttribute("email")));
-            request.getRequestDispatcher("visualizza_oggetto.jsp").forward(request, response);
+            else {  // se il venditore inserisce tutti i campi bene
+                // setto l'attributo oggetto passandogli come valore l'oggetto Oggetto temp
+                // mi serve per la pagina di riepilogo (visualizza_oggetto.jsp)
+
+                temp.setInStock(Integer.parseInt((String)request.getParameter("quantita")));
+                temp.setMarca((String)session.getAttribute("email"));
+                request.setAttribute("oggetto", temp);
+
+                // Inserisco l'oggetto nel db
+                OggettoFactory.getInstance().creaOggetto(temp);
+                session.removeAttribute("oggetti");
+                session.setAttribute("oggetti", OggettoFactory.getInstance().getOggettiByVenditore((String)session.getAttribute("email")));
+                request.getRequestDispatcher("visualizza_oggetto.jsp").forward(request, response);
+            }
         } 
         // se ho cliccato sulla riga (per visualizzare l'oggetto) dalla pagina sold.jsp
         else if (session.getAttribute("venditoreLoggedIn")!=null && request.getParameter("productId") != null) {
@@ -206,10 +215,18 @@ public class Venditore extends HttpServlet {
                 goBackVenditore++;
             }
             
-            //descrizione oggetto
+            // descrizione oggetto
             if (!request.getParameter("descrizione").equals("")) {
                 temp.setDescrizione(request.getParameter("descrizione"));
                 request.setAttribute("descrizione", temp.getDescrizione());
+            } else {
+                goBackVenditore++;
+            }
+            
+            // quantita oggetto
+            if (!request.getParameter("quantita").equals("")) {
+                temp.setInStock(Integer.parseInt(request.getParameter("quantita")));
+                request.setAttribute("quantita", temp.getInStock());
             } else {
                 goBackVenditore++;
             }
@@ -235,11 +252,11 @@ public class Venditore extends HttpServlet {
         else if (session.getAttribute("venditoreLoggedIn")!=null) {
             request.getRequestDispatcher("venditore.jsp").forward(request, response);
         }
-
-        // se il venditore è correttamente loggato E se i parametri sono passati correttamente,
-        // a questo punto del codice neanche ci sia arriva... se siamo quì significa che c'è 
-        // un'anomalia.. quindi lo reindirizzo alla pagina di accesso_negato.jsp per la segnalazione dell'errore
-        request.getRequestDispatcher("accesso_negato.jsp").forward(request, response);
+        if(!response.isCommitted())
+            // se il venditore è correttamente loggato E se i parametri sono passati correttamente,
+            // a questo punto del codice neanche ci sia arriva... se siamo quì significa che c'è 
+            // un'anomalia.. quindi lo reindirizzo alla pagina di accesso_negato.jsp per la segnalazione dell'errore
+            request.getRequestDispatcher("accesso_negato.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

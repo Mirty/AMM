@@ -16,7 +16,7 @@ public class Conto {
     /**
      Costruttore
      */
-    Conto (int id, float saldo) {
+    public Conto (int id, float saldo) {
         this.id = id;
         this.saldo = saldo;
     }

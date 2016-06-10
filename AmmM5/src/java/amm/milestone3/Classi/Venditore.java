@@ -18,7 +18,7 @@ public class Venditore extends Utente {
      */ 
     private String marca;
     
-    Venditore (String nome, String cognome, String email, String password, int conto, String marca) {
+    Venditore (String nome, String cognome, String email, String password, Conto conto, String marca) {
         super(nome, cognome, email, password, conto);
         this.marca = marca;
     }

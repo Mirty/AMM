@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <div id="header">
     <div id="header_c">
         <div id="header_c_sezione_superiore">
@@ -10,7 +11,14 @@
                 </div>
             </div>
             <div id="header_c_sezione_superiore_utente">
-                <a href="Login"><div id="header_c_sezione_superiore_utente_accesso" title="Accedi">ACCEDI</div></a>
+                <c:choose>
+                    <c:when test="${loggedIn!=null}" >
+                        <a href="Logout"><div id="header_c_sezione_superiore_utente_accesso" title="Esci">LOGOUT</div></a>
+                    </c:when>
+                    <c:otherwise>
+                        <a href="Login"><div id="header_c_sezione_superiore_utente_accesso" title="Accedi">ACCEDI</div></a>
+                    </c:otherwise>
+                </c:choose>
                 <a href="Login"><div id="header_c_sezione_superiore_utente_carrello" title="Vai al carrello"></div></a>
             </div>
         </div>

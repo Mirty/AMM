@@ -93,6 +93,8 @@ public class Login extends HttpServlet {
                     // in questo caso uso la sessione così poter controllare, se necessario
                     // se il cliente ha abbastanza soldi per effettuare l'acquisto
                     session.setAttribute("acquirente", u);
+                    // carico il saldo del cliente nel primo accesso e quando un'acquisto va a buon fine
+                    session.setAttribute("conto", ((Utente)AcquirenteFactory.getInstance().getAcquirenteByEmail((String)session.getAttribute("email"))).getConto());
                     // rimanda alla Servlet Acquirente
                     request.getRequestDispatcher("Acquirente").forward(request, response);
                 }
@@ -111,8 +113,9 @@ public class Login extends HttpServlet {
                 }
             }
         }
-        // la pagina jsp che effettivamente gira è login.jsp
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        if(!response.isCommitted())
+            // la pagina jsp che effettivamente gira è login.jsp
+            request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">

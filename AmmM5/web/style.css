@@ -9,8 +9,10 @@ and open the template in the editor.
 */
 
 
-/* Importo il font per il footer*/
+/* Importo il font per il footer */
 @import url(https://fonts.googleapis.com/css?family=Handlee);
+/* Importo il font per il saldo */
+@import url(https://fonts.googleapis.com/css?family=Abril+Fatface);
 
 /*
     Uso le mediaqueries per la realizzazione del layout responsive.
@@ -378,7 +380,7 @@ button[name="convalida"]:hover, button[name="accedi"]:hover,  button[name="modif
 #corpo_c_visualizza {
     margin:auto;
     width:700px;
-    min-height: 650px;
+    min-height: 450px;
     border-radius: 10px;
     background-color:white;
     padding:20px;
@@ -541,6 +543,71 @@ td.descr_table {
     min-height: 200px;
     width:300px;
 }
+
+/* Parte per il cliente: visualizza prodotti top simili */
+#corpo_c_suggerimenti {
+    width:100%;
+    height:240px;
+    background-color: white;
+    overflow: hidden;
+}
+
+.corpo_c_suggerimenti_contenitore {
+    width:165px;
+    height:200px;
+    background-color: #FDFDFB;
+    border-right: 2px #E8E5E0 solid;
+    border-bottom: 2px #E8E5E0 solid;
+    float: left;
+    margin:20px;
+    margin-right: 0px;
+    text-align: center;
+}
+
+/* Zona visualizzazione conto e ricarica */
+#corpo_c_contenitore_conto {
+    margin:auto;
+    width:50%;
+    height:120px;
+    background-color:#F7F1E7;
+    margin-bottom: 50px;
+    border-radius:30px;
+    color:#5a6956;
+}
+
+p#saldo {
+    font-size: 25px;
+    color: #D44625;
+    font-family: 'Abril Fatface';
+    text-align: center;
+}
+
+#corpo_c_contenitore_conto_sx, #corpo_c_contenitore_conto_dx {
+    float:left;
+    width:35%;
+    height:100%;
+    text-align: center;
+}
+
+#corpo_c_contenitore_conto_dx {
+    width:65%;
+}
+
+#corpo_c_contenitore_conto_dx_ricarica {
+    float:left;
+    width:100%;
+    height:auto;
+}
+
+#corpo_c_contenitore_conto_dx_ricarica_elementi {
+    margin:auto;
+    width:150px;
+}
+
+input[name="ricarica_button"],input[name="ricarica_saldo"] {
+    float:left;
+}
+
 
 
 /* Parte del corpo per la ricerca */

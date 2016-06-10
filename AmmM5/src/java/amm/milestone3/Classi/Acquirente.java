@@ -9,7 +9,7 @@ public class Acquirente extends Utente {
     /**
      * Costruttore con anche il carrello
      */ 
-    public Acquirente (String nome, String cognome, String email, String password, int conto) {
+    public Acquirente (String nome, String cognome, String email, String password, Conto conto) {
         super(nome, cognome, email, password, conto);
     }
     

@@ -35,6 +35,22 @@
             <div id="corpo">
                 <div id="corpo_c">
                     
+                    <!-- Zona visualizzazione conto e ricarica -->
+                    <div id="corpo_c_contenitore_conto">
+                        <div id="corpo_c_contenitore_conto_sx"><p>Sul tuo conto hai:</p> <p id="saldo">${conto.getSaldo()} €<p></div>
+                        <div id="corpo_c_contenitore_conto_dx">
+                            <p>Vuoi ricaricare il tuo conto?</p>
+                            <div id="corpo_c_contenitore_conto_dx_ricarica">
+                                <form action="Acquirente" method="POST">
+                                    <div id="corpo_c_contenitore_conto_dx_ricarica_elementi">
+                                        <input type="number" name="ricarica_saldo" id="ricarica" min="0" max="100" value="0">
+                                        <button name="ricarica_button">Ricarica</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <!-- Barra di ricerca -->
                     <div id="sezione_superiore_ricerca">
                         <div id="superiore_barra_di_ricerca">

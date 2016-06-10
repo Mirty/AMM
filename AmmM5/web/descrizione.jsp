@@ -74,7 +74,7 @@
                                     Registrarsi è completamente gratuito e lo stesso vale per la messa in vendita dei tuoi beni!
                                     Per l'inserimento dei tuoi prodotti non avrai bisogno di un tecnico! La nostra interfaccia user-friendly renderà  il procedimento
                                     gradevole e molto veloce. Dopo aver effettuato la registrazione potrai mettere in commercio i tuoi prodotti da 
-                                    <a href="venditore.jsp" target="blank">questa</a> pagina. Che aspetti? Iscriviti subito su <a href="descrizione.jsp">Eataly.com</a> 
+                                    <a href="Login" target="blank">questa</a> pagina. Che aspetti? Iscriviti subito su <a href="descrizione.jsp">Eataly.com</a> 
                                 </li>
                                 <li> 
                                     <h4>Un <a href="cliente.jsp">CLIENTE</a></h4>

@@ -17,16 +17,17 @@ public class Utente {
     private String email; 
     private String password;
     private int idConto;
+    private Conto conto;
     
     /**
      * Costruttore
      */ 
-    Utente (String nome, String cognome, String email, String password, int conto) {
+    Utente (String nome, String cognome, String email, String password, Conto conto) {
         this.nome = nome;
         this.cognome = cognome;
         this.email = email;
         this.password = password;
-        idConto = conto;
+        this.conto = conto;
     }
     
     Utente () {}
@@ -89,10 +90,14 @@ public class Utente {
 
     /**
      * @return the conto
-     */
+     *//*
     public int getConto() {
         //return idConto;
-        return 80;
+        return idConto;
+    }*/
+    
+    public Conto getConto() {
+        return conto;
     }
 
     /**
@@ -100,5 +105,12 @@ public class Utente {
      */
     public void setConto(int conto) {
         idConto = conto;
+    }
+
+    /**
+     * @param conto the conto to set
+     */
+    public void setConto(Conto conto) {
+        this.conto = conto;
     }
 }

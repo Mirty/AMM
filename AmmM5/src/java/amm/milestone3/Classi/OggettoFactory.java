@@ -237,6 +237,7 @@ public class OggettoFactory {
             Statement stmt = conn.createStatement();
             String sql = "select * from categoria";
             ResultSet set = stmt.executeQuery(sql);
+            
             while (set.next()) {
                cat.put(set.getInt("idcategoria"), set.getString("nome"));
             }
@@ -508,6 +509,7 @@ public class OggettoFactory {
             if (conn != null) {
                 try {
                    System.err.print("Transaction is being rolled back");
+                   // Nel caso uno di qualsiasi questi passi dovesse fallire, il db deve essere riportato allo stato che aveva prima del passo 1.
                    conn.rollback();
                 } 
                 catch(SQLException exc) {
@@ -547,8 +549,7 @@ public class OggettoFactory {
             stmt.setString(2, text);
             ResultSet set = stmt.executeQuery();
             System.out.println("query="+query);
-            while(set.next())
-            {
+            while(set.next()) {
                 Oggetto current = new Oggetto(set.getInt("idOggetto"),set.getString("nome"),set.getFloat("prezzo"), set.getString("descrizione"),set.getFloat("peso"),set.getString("urlImg"),set.getInt("categoria"),set.getString("marchio"),set.getString("vendutoDa"),set.getInt("disponibili"),set.getInt("venduti"));
                 n.add(current);
             }
@@ -561,6 +562,30 @@ public class OggettoFactory {
         }
         
         return n;
+    }
+    
+    // restituisce i 5 oggetti più venduti della categoria specificata
+    public ArrayList<Oggetto> getOggettiTopByCategoria (int cat){
+        ArrayList<Oggetto> lista = new ArrayList<> ();
+        
+        try {
+            Connection conn = DriverManager.getConnection(connectionString, "APP", "");
+            String query = "select * from istanza join oggetto on oggetto.idoggetto = istanza.idoggetto  join venditore on venditore.email = oggetto.vendutoDa where categoria = "+cat+" order by venduti desc ";         
+            PreparedStatement stmt = conn.prepareStatement(query);
+            ResultSet set = stmt.executeQuery();
+            int i=0;
+            while(set.next()) {
+                if (i>=5) break; // mi servono solo i primi 5 oggetti
+                Oggetto current = new Oggetto(set.getInt("idOggetto"),set.getString("nome"),set.getFloat("prezzo"), set.getString("descrizione"),set.getFloat("peso"),set.getString("urlImg"),set.getInt("categoria"),set.getString("marchio"),set.getString("vendutoDa"),set.getInt("disponibili"),set.getInt("venduti"));
+                lista.add(current);
+                i++;
+            }
+            stmt.close();
+            conn.close();  
+        } catch(SQLException ex) {
+            System.out.println("errore getOggettiTopByCategoria : "+ex.getMessage());
+        }
+        return lista;
     }
 
 }

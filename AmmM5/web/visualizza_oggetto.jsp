@@ -55,6 +55,22 @@
                             ${carrello}
                         </div>
                     </div>
+                    <!-- Mostro questo solo se si è loggato l'acquirente -->
+                    <c:if test="${acquirenteLoggedIn==true}"> 
+                        <div class="corpo_c_vantaggi">
+                            Agli altri clienti è piaciuto anche...
+                            <div id="corpo_c_suggerimenti">
+                                <c:forEach var="oggetto" items="${simili}">
+                                    <a href="Acquirente?productId=${oggetto.getId()}">
+                                        <div class="corpo_c_suggerimenti_contenitore">
+                                            <img src="imgs/obj/${oggetto.getUrlImg()}" width="150" alt="url img">
+                                            ${oggetto.getNome()} - ${oggetto.getMarca()}
+                                        </div>     
+                                    </a>
+                                </c:forEach>
+                            </div>
+                        </div>
+                    </c:if>    
                 </div>
             </div>
             <!-- Fine corpo -->

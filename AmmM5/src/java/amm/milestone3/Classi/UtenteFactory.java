@@ -32,75 +32,7 @@ public class UtenteFactory {
         return singleton;
     }
     
-    UtenteFactory () {
-        /**
-         * inizializzo l'array list che contiene la lista degli utenti iscritti al sito.
-         */
-        /*
-        listaUtenti = new ArrayList <> ();
-        ArrayList <Venditore> listaVenditori = new ArrayList <> ();
-        ArrayList <Acquirente> listaAcquirenti = new ArrayList <> ();
-        
-        // prelevo gli acquirenti
-        try {
-            // creazione e apertura della connessione
-            // si specifica la url, lo username e la password per il db
-            Connection conn = DriverManager.getConnection(connectionString, "admin_65005", "");
-            // utilizzo della connessione per inviare una query (select)
-            Statement stmt = conn.createStatement();
-            String sql = "select * from acquirente";
-            ResultSet set = stmt.executeQuery(sql);
-            while (set.next()) {
-                // String nome, String cognome, String email, String password, Conto conto
-                listaAcquirenti.add(new Acquirente(set.getString("nome"), set.getString("cognome"), set.getString("email"), set.getString("password"), set.getInt("conto")));
-            }
-            stmt.close();
-            // chiusura della connessione
-            conn.close();
-        } 
-        catch (SQLException ex) {
-            // nel caso la query fallisca (p.e. errori di sintassi)
-            // viene sollevata una SQLException
-            //Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("errore utente factory -> creazione lista acquirenti");
-        } 
-        
-        // prelevo i venditori
-        try {
-            // creazione e apertura della connessione
-            // si specifica la url, lo username e la password per il db
-            Connection conn = DriverManager.getConnection(connectionString, "admin_65005", "");
-            // utilizzo della connessione per inviare una query (select)
-            Statement stmt = conn.createStatement();
-            String sql = "select * from venditore";
-            ResultSet set = stmt.executeQuery(sql);
-            while (set.next()) {
-                // String nome, String cognome, String email, String password, Conto conto
-                listaVenditori.add(new Venditore(set.getString("nome"), set.getString("cognome"), set.getString("email"), set.getString("password"), set.getInt("conto"), set.getString("marchio")));
-            }
-            stmt.close();
-            // chiusura della connessione
-            conn.close();
-        } 
-        catch (SQLException ex) {
-            // nel caso la query fallisca (p.e. errori di sintassi)
-            // viene sollevata una SQLException
-            //Logger.getLogger(Test.class.getName()).log(Level.SEVERE, null, ex);
-            System.out.println("errore utente factory -> creazione lista venditori");
-        }
-        
-        // aggiungo alla lista degli utenti sia gli acquirenti sia i venditori
-        int i=0;
-        for (Utente u : listaAcquirenti) {
-            System.out.println(u.getNome()+""+u.getCognome());
-            listaUtenti.add(listaAcquirenti.get(i));
-        }
-        i=0;
-        for (Utente u : listaAcquirenti) {
-            System.out.println(u.getNome()+""+u.getCognome());
-            listaUtenti.add(listaVenditori.get(i));
-        }*/
-    }
+    UtenteFactory () {}
     
     public ArrayList <Utente> getListaUtenti () {
         return listaUtenti;
