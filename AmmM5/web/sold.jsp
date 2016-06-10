@@ -53,6 +53,7 @@
                                 <th>Modifica</th>
                                 <th>Elimina</th>
                             </tr>
+                            
                             <!-- uso un contatore per contare le righe -->
                             <c:set var="riga" value="0" scope="page" />
                             <c:forEach var="oggetto" items="${oggetti}">
