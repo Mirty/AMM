@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -29,8 +30,16 @@ public class Filter extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        System.out.println("Sono quì");
         String command = request.getParameter("chiave"); // contine q in js/gestioneRicerca.js
+        
+        // CORREZIONE M5
+        // controllo che a essere loggato sia l'acquirente
+        HttpSession session = request.getSession(true);
+        if (session.getAttribute("acquirenteLoggedIn")==null) {
+            // se non è loggato l'acquirente, rimando alla pagina di accesso negato
+            request.getRequestDispatcher("accesso_negato.jsp").forward(request, response);
+        }
+        
         if (command != null) {
             if (command.equals("q")) {
                 ArrayList<Oggetto> listaOggetti;
